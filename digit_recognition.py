@@ -1,13 +1,12 @@
 import numpy as np #self-explainatory
-import matplotlib.pyplot as plt #does visualization stuff
+import matplotlib.pyplot as plt #helps us visualize stuff
 import tensorflow as tf #neural network tool we're using
+from tensorflow import keras
 from tensorflow.keras import layers, models
 import os #tells us stuff abt the directory and whatnot
 
-mnist = tf.keras.datasets.mnist #dataset with handwritten digits for us to use
-#supervised learning btw
-(train_img, train_lbl), (test_img, test_lbl) = mnist.load_data() 
-#splits the data into two sets: testing and training. tensorflow is doing all of this
+(train_img, train_lbl), (test_img, test_lbl) = keras.datasets.mnist.load_data()
+#splits the data into two sets: testing and training. keras is doing all of this
 
 train_img = train_img/255
 test_img = train_img/255
@@ -32,14 +31,17 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=
 #sparse_categorical_crossentropy calculates how far off the model's predictions are
 #metrics tells us how accurate the nn is
 
-model.fit(train_img, train_lbl, epochs=3)
+model.fit(train_img, train_lbl, epochs=5)
 #puts the training stuff into our model. also it trains 3 times bc why not
 
+print(len(test_img))
+print(len(test_lbl))
 test_loss, test_acc = model.evaluate(test_img, test_lbl)
 print(f"Test accuracy: {test_acc}")
 
 predictions = model.predict(test_img)
 
-plt.imshow(test_img[0], cmap=plt.cm.binary)
-plt.title(f"Predicted: {np.argmax(predictions[0])}")
+rnum=random.randint(0,9999)
+plt.imshow(test_img[rnum], cmap=plt.cm.binary)
+plt.title(f"Predicted: {np.argmax(predictions[rnum])}")
 plt.show()
