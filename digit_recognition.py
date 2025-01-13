@@ -1,5 +1,5 @@
 import numpy as np #self-explainatory
-import matplotlib.pyplot as mplt #helps us visualize stuff
+import matplotlib.pyplot as plt #does visualization stuff
 import tensorflow as tf #neural network tool we're using
 from tensorflow.keras import layers, models
 import os #tells us stuff abt the directory and whatnot
@@ -43,5 +43,3 @@ predictions = model.predict(test_img)
 plt.imshow(test_img[0], cmap=plt.cm.binary)
 plt.title(f"Predicted: {np.argmax(predictions[0])}")
 plt.show()
-
-#testing time!
