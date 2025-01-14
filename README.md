@@ -14,7 +14,7 @@ Because each number is different, each number will have 0s (no value) and 1s (da
 
 All that's left now is to compile the model, and run it. 
 
-All the display stuff that you can see in Jupyter is done by matplotlib.
+All the display stuff that you can see is done by matplotlib.
 
 That's a really quick overview, feel free to download the python or jupyter files to mess around with them. 
 
