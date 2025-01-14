@@ -9,7 +9,7 @@ import os #tells us stuff abt the directory and whatnot
 #splits the data into two sets: testing and training. keras is doing all of this
 
 train_img = train_img/255
-test_img = train_img/255
+test_img = test_img/255
 #in the mnist dataset, each pixel in each image is a value from 0 to 255. 
 #why deal with such big numbers? too complicated. i'll divide by 255 to give me a value between 0 and 1 instead.
 
